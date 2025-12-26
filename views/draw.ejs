@@ -1,0 +1,35 @@
+<div>
+  <div class="dg-statusbar mb-3">
+    <div class="dg-timer">Time Left: {{ timer }}s</div>
+    <div class="dg-highlight">Players currently drawing: {{ user_entity.username }}</div>
+    <div class="dg-highlight" v-if="user_entity.question">Question: {{ user_entity.question.content }}</div>
+  </div>
+
+  <div class="dg-grid-3">
+    <div class="dg-card">
+      <div class="dg-card-header">Players</div>
+      <ul class="dg-list">
+        <li v-for="user in room_entity.users">
+          <span>{{ user }}</span>
+          <span v-if="user === user_entity.username" class="dg-pill">Drawing</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="dg-card d-flex flex-column align-items-center">
+      <div class="dg-canvas-wrapper mb-3">
+        <canvas id="drawCanvas" class="draw-canvas"></canvas>
+      </div>
+      <div class="dg-actions">
+        <button type="button" class="dg-btn secondary" id="clearBtn">Clear Canvas</button>
+        <button type="button" class="dg-btn primary" id="drawOverBtn" @click="drawOver">End Round</button>
+      </div>
+    </div>
+
+    <div class="dg-card">
+      <div class="dg-card-header">Rules</div>
+      <div class="fw-bold text-secondary mb-2">Draw something that everyone can guess</div>
+      <div class="fw-bold">Rules: Guess the word or time runs out, and the round ends</div>
+    </div>
+  </div>
+</div>

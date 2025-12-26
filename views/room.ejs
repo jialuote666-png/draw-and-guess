@@ -1,0 +1,25 @@
+<div class="dg-grid-2">
+  <div class="dg-card">
+    <div class="dg-card-header">Room</div>
+    <div class="dg-statusbar mb-3">
+      <div class="dg-pill"><span class="dot"></span> Room: {{ room_entity.roomName }}</div>
+      <div class="dg-pill">Admin: {{ room_entity.admin }}</div>
+      <div class="dg-pill">Shared Code: {{ room_entity.roomName }}</div>
+    </div>
+    <div class="dg-actions">
+      <button id="adminButton" class="dg-btn primary" @click="admin('start-game')" :disabled="user_entity.username !== room_entity.admin">Start Game</button>
+      <button class="dg-btn danger" @click="leaveRoom">Leave Room</button>
+    </div>
+    <div v-if="user_entity.username !== room_entity.admin" class="mt-3 fw-bold text-secondary">Waiting for host to start...</div>
+  </div>
+
+  <div class="dg-card">
+    <div class="dg-card-header">Players</div>
+    <ul class="dg-list">
+      <li v-for="user in room_entity.users">
+        <span>{{ user }}<span v-if="user === user_entity.username" class="dg-timer">(You)</span></span>
+        <span v-if="user === room_entity.admin" class="dg-pill">Host</span>
+      </li>
+    </ul>
+  </div>
+</div>

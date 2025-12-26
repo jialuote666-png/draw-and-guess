@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('header'); -%>
+  <h2 class="dg-title">Draw & Guess</h2>
+
+  <div id="game" class="dg-shell">
+    <%- include('debug'); -%>
+
+    <div v-if="user_entity.pageStatus == 0"><%- include('login'); -%></div>
+
+    <div v-else-if="user_entity.pageStatus == 1"><%- include('lobby'); -%></div>
+
+    <div v-else-if="user_entity.pageStatus == 2"><%- include('room'); -%></div>
+
+    <div v-else-if="user_entity.pageStatus == 3"><%- include('draw'); -%></div>
+
+    <div v-else-if="user_entity.pageStatus == 4"><%- include('answer'); -%></div>
+
+    <div v-else-if="user_entity.pageStatus == 5"><%- include('round_over'); -%></div>
+
+    <div v-else-if="user_entity.pageStatus == 6"><%- include('game_over'); -%></div>
+  </div>
+
+  <%- include('footer'); -%>
+</html>

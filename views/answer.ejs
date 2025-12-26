@@ -1,0 +1,39 @@
+<div>
+  <div class="dg-statusbar mb-3">
+    <div class="dg-timer">Time Left: {{ timer }}s</div>
+    <div class="dg-highlight">Players currently drawing: {{ currentDrawer || '...' }}</div>
+    <div class="dg-highlight">Your Role: Guesser</div>
+  </div>
+
+  <div class="dg-grid-3">
+    <div class="dg-card">
+      <div class="dg-card-header">Room Players</div>
+      <ul class="dg-list">
+        <li v-for="user in room_entity.users">
+          <span>{{ user }}</span>
+          <span v-if="user === currentDrawer" class="dg-pill">Drawing</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="dg-card d-flex flex-column align-items-center">
+      <div class="dg-canvas-wrapper">
+        <canvas id="answerCanvas" class="answer-canvas"></canvas>
+      </div>
+    </div>
+
+    <div class="dg-chat">
+      <div class="dg-card-header">Chat / Guess Answers</div>
+      <div class="dg-chat-messages">
+        <div v-for="msg in chatMessages" class="dg-chat-row" :class="{ system: msg.sender === 'System' }">
+          <span v-if="msg.sender !== 'System'" class="sender">{{ msg.sender }}:</span>
+          <span>{{ msg.text }}</span>
+        </div>
+      </div>
+      <div class="dg-chat-input">
+        <input type="text" id="chatInput" class="dg-input" @keyup.enter="sendMessage" placeholder="Enter your guess..." autocomplete="off" />
+        <button class="dg-btn primary" @click="sendMessage">Send</button>
+      </div>
+    </div>
+  </div>
+</div>

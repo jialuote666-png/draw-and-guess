@@ -1,0 +1,16 @@
+<div class="dg-card">
+  <div class="dg-card-header">Round Over</div>
+  <div class="dg-subtitle">Waiting for host to start next round</div>
+
+  <ul class="dg-list mt-3">
+    <li v-for="(score, user) in scores">
+      <span>{{ user }}</span>
+      <span class="score-value">{{ score }}</span>
+    </li>
+  </ul>
+  <div v-if="Object.keys(scores).length === 0" class="fw-bold text-secondary mt-3">No scores yet</div>
+
+  <div class="dg-actions mt-4">
+    <button id="adminButton" class="dg-btn primary" @click="admin('next-round')" :disabled="user_entity.username !== room_entity.admin">Next Round</button>
+  </div>
+</div>

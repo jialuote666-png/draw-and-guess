@@ -1,0 +1,326 @@
+.dg-body {
+  background: #1a7dff;
+  color: #0a2540;
+  font-family: 'Nunito', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.dg-bg {
+  position: fixed;
+  inset: 0;
+  background-color: #1a7dff;
+  background-image: radial-gradient(circle at 15% 10%, rgba(255, 255, 255, 0.18) 0 8px, transparent 9px), radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.16) 0 10px, transparent 11px),
+    radial-gradient(circle at 35% 65%, rgba(255, 255, 255, 0.12) 0 14px, transparent 15px), radial-gradient(circle at 85% 75%, rgba(255, 255, 255, 0.12) 0 12px, transparent 13px),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, transparent 35%), linear-gradient(225deg, rgba(0, 0, 0, 0.06) 0%, transparent 40%);
+  background-size: 320px 320px, 420px 420px, 520px 520px, 480px 480px, 100% 100%, 100% 100%;
+  z-index: -1;
+}
+
+.dg-main {
+  padding: 28px 0 20px;
+}
+
+.dg-container {
+  max-width: 1100px;
+}
+
+.dg-title {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-align: center;
+  color: #0a2540;
+  text-shadow: 0 2px 0 rgba(255, 255, 255, 0.6);
+  font-size: 46px;
+  margin: 0 0 24px;
+}
+
+.dg-shell {
+  padding: 26px;
+}
+
+.dg-card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  border: 2px solid rgba(10, 37, 64, 0.08);
+  padding: 18px;
+}
+
+.dg-card-header {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  margin: 0 0 14px;
+  color: #0a2540;
+}
+
+.dg-subtitle {
+  font-weight: 700;
+  color: rgba(10, 37, 64, 0.7);
+  margin: 0 0 12px;
+}
+
+.dg-grid-2 {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 18px;
+}
+
+.dg-grid-3 {
+  display: grid;
+  grid-template-columns: 0.9fr 1.4fr 0.9fr;
+  gap: 18px;
+}
+
+.dg-input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 2px solid rgba(10, 37, 64, 0.15);
+  outline: none;
+  transition: box-shadow 0.15s ease, border-color 0.15s ease;
+  font-weight: 700;
+  color: #0a2540;
+  background: #f6fbff;
+}
+
+.dg-input:focus {
+  border-color: rgba(26, 125, 255, 0.7);
+  box-shadow: 0 0 0 4px rgba(26, 125, 255, 0.18);
+}
+
+.dg-btn {
+  border: none;
+  border-radius: 14px;
+  padding: 12px 16px;
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  box-shadow: 0 7px 0 rgba(0, 0, 0, 0.16);
+  transform: translateY(0);
+  transition: transform 0.08s ease, box-shadow 0.08s ease, filter 0.12s ease;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.dg-btn:active {
+  transform: translateY(3px);
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.14);
+}
+
+.dg-btn.primary {
+  background: #1a7dff;
+  color: white;
+}
+
+.dg-btn.secondary {
+  background: #00c2ff;
+  color: #06223c;
+}
+
+.dg-btn.warning {
+  background: #ffcc00;
+  color: #3b2b00;
+}
+
+.dg-btn.danger {
+  background: #ff4d4f;
+  color: white;
+}
+
+.dg-btn:disabled {
+  filter: grayscale(0.65);
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.dg-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dg-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 10px;
+  border-radius: 12px;
+  border: 2px solid rgba(10, 37, 64, 0.06);
+  background: #f6fbff;
+  margin-bottom: 10px;
+  font-weight: 800;
+}
+
+.dg-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(26, 125, 255, 0.12);
+  border: 2px solid rgba(26, 125, 255, 0.22);
+  font-weight: 900;
+}
+
+.dg-pill .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #2ee59d;
+  box-shadow: 0 0 0 3px rgba(46, 229, 157, 0.18);
+}
+
+.dg-statusbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  border: 2px solid rgba(10, 37, 64, 0.08);
+  background: #f6fbff;
+}
+
+.dg-timer {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 800;
+  font-size: 22px;
+  color: #ff4d4f;
+}
+
+.dg-highlight {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 800;
+  font-size: 20px;
+  color: #1a7dff;
+}
+
+.dg-canvas-wrapper {
+  border-radius: 16px;
+  border: 3px solid rgba(10, 37, 64, 0.14);
+  background: white;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  width: fit-content;
+}
+
+.draw-canvas,
+.answer-canvas {
+  display: block;
+  cursor: crosshair;
+  touch-action: none;
+}
+
+.dg-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.dg-chat {
+  background: white;
+  border-radius: 16px;
+  border: 2px solid rgba(10, 37, 64, 0.08);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+  padding: 14px;
+  height: 100%;
+}
+
+.dg-chat-messages {
+  height: 280px;
+  overflow-y: auto;
+  padding: 10px;
+  border-radius: 12px;
+  background: #f6fbff;
+  border: 2px solid rgba(10, 37, 64, 0.08);
+}
+
+.dg-chat-row {
+  padding: 8px 10px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  font-weight: 800;
+  background: rgba(255, 255, 255, 0.65);
+  border: 2px solid rgba(10, 37, 64, 0.06);
+}
+
+.dg-chat-row.system {
+  background: rgba(46, 229, 157, 0.14);
+  border-color: rgba(46, 229, 157, 0.28);
+}
+
+.dg-chat-row .sender {
+  font-family: 'Fredoka', sans-serif;
+  color: #0a2540;
+  margin-right: 8px;
+}
+
+.dg-chat-input {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.dg-chat-input input {
+  flex: 1;
+}
+
+.score-value {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 800;
+  color: #1a7dff;
+}
+
+@media (max-width: 992px) {
+  .dg-grid-3 {
+    grid-template-columns: 1fr;
+  }
+  .dg-grid-2 {
+    grid-template-columns: 1fr;
+  }
+  .dg-title {
+    font-size: 38px;
+  }
+}
+.alert-popup {
+  position: fixed;
+  top: 20px;
+  left: calc(50% - 150px);
+  z-index: 1050;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.alert {
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-weight: bold;
+
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  opacity: 1;
+}
+
+.alert.success {
+  background-color: #28a745;
+  /* Green for success */
+}
+
+.alert.error {
+  background-color: #dc3545;
+  /* Red for error */
+}
+
+.alert.hidden {
+  opacity: 0;
+  transform: none;
+  /* transform: translateY(-20px); */
+}

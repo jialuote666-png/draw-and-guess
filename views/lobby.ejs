@@ -1,0 +1,43 @@
+<div class="dg-grid-2">
+  <!-- Alert Popup Container -->
+  <div class="alert-popup">
+    <div v-for="alert in alerts" :key="alert.id" :class="['alert', 'alert-' + alert.type, { 'hidden': alert.hidden }]" role="alert">
+      {{ alert.message }}
+    </div>
+  </div>
+
+  <div class="dg-card">
+    <div class="dg-card-header">Lobby</div>
+    <div class="dg-subtitle">Create or join a room</div>
+    <form id="roomForm" class="d-flex flex-wrap gap-2 align-items-center">
+      <input type="text" id="roomName" name="roomName" class="dg-input" placeholder="Enter room name" required autocomplete="off" />
+      <button type="button" id="createBtn" class="dg-btn primary" @click="createRoom">Create Room</button>
+      <button type="button" id="joinBtn" class="dg-btn warning" @click="joinRoom">Join Room</button>
+    </form>
+
+    <!-- Room List -->
+    <div class="mt-4">
+      <div class="dg-card-header">Active Rooms</div>
+      <div v-if="roomList && roomList.length > 0">
+        <ul class="dg-list">
+          <li v-for="room in roomList" :key="room.roomName">
+            <span>{{ room.roomName }}</span>
+            <span class="dg-pill">{{ room.users.length }} players</span>
+          </li>
+        </ul>
+      </div>
+      <div v-else class="text-secondary fw-bold">No active rooms</div>
+    </div>
+  </div>
+
+  <div class="dg-card">
+    <div class="dg-card-header">Online Players</div>
+    <div class="dg-subtitle">{{ Object.keys(onlineUsers).length }} players online</div>
+    <ul class="dg-list">
+      <li v-for="(user, username) in onlineUsers" :key="username">
+        <span>{{ username }} <span v-if="username === user_entity.username">(You)</span></span>
+        <span class="dg-pill" :class="{'bg-success': user.online}"><span class="dot"></span> {{ user.online ? 'Online' : 'Offline' }}</span>
+      </li>
+    </ul>
+  </div>
+</div>

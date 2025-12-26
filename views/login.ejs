@@ -1,0 +1,31 @@
+<div class="dg-card mx-auto" style="max-width: 520px">
+  <!-- Alert Popup Container -->
+  <div class="alert-popup">
+    <div v-for="alert in alerts" :key="alert.id" :class="['alert', 'alert-' + alert.type, { 'hidden': alert.hidden }]" role="alert">
+      {{ alert.message }}
+    </div>
+  </div>
+  <div class="text-center mb-3">
+    <div class="dg-card-header">User Login</div>
+  </div>
+  <form action="/login" method="POST" class="d-grid gap-3">
+    <!-- <div>
+      <label for="username" class="fw-bold mb-2">Username</label>
+      <input type="text" id="username" name="username" class="dg-input" placeholder="Enter username" required />
+    </div>
+    <div>
+      <label for="password" class="fw-bold mb-2">Password</label>
+      <input type="password" id="password" name="password" class="dg-input" placeholder="Enter password" required />
+    </div> -->
+
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control dg-input" id="username" name="username" placeholder="Enter username" autocomplete="off" />
+      <label for="username">Username</label>
+    </div>
+    <div class="form-floating">
+      <input type="password" class="form-control dg-input" id="password" name="password" placeholder="Password" autocomplete="off" />
+      <label for="password">Password</label>
+    </div>
+    <button type="button" class="dg-btn primary w-100" @click="login">Login</button>
+  </form>
+</div>

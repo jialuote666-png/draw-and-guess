@@ -1,0 +1,15 @@
+<div class="dg-card">
+  <div class="dg-card-header">Game Over</div>
+  <div class="dg-subtitle">Total Scores</div>
+
+  <ul class="dg-list mt-3">
+    <li v-for="(score, user) in scores">
+      <span>{{ user }}</span>
+      <span class="score-value">{{ score }}</span>
+    </li>
+  </ul>
+
+  <div class="dg-actions mt-4">
+    <button id="adminButton" class="dg-btn primary" @click="admin('game-over')" :disabled="user_entity.username !== room_entity.admin">Back to Room</button>
+  </div>
+</div>
